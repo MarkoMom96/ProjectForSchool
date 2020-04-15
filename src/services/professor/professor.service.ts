@@ -17,4 +17,6 @@ export class ProfessorService {
   getById(id: number): Promise<Professor> {
     return this.professor.findOne(id);
   }
+
+  //Functions to add: add, editById, deleteById
 }

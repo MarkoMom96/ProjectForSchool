@@ -5,17 +5,18 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Test } from './test.entity';
+import { FinishedTest } from './finished-test.entity';
 
-@Index('uq_professor_username', ['username'], { unique: true })
-@Entity()
-export class Professor {
+@Index('uq_student_username', ['username'], { unique: true })
+@Index('uq_student_index', ['index'], { unique: true })
+@Entity('student')
+export class Student {
   @PrimaryGeneratedColumn({
     type: 'int',
-    name: 'professor_id',
+    name: 'student_id',
     unsigned: true,
   })
-  professorId: number;
+  studentId: number;
 
   @Column({
     type: 'varchar',
@@ -43,9 +44,16 @@ export class Professor {
   })
   surname: string;
 
+  @Column({
+    type: 'char',
+    unique: true,
+    length: 10,
+  })
+  index: string;
+
   @OneToMany(
-    () => Test,
-    test => test.professor,
+    () => FinishedTest,
+    finishedTest => finishedTest.student,
   )
-  tests: Test[];
+  finishedTests: FinishedTest[];
 }
