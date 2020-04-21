@@ -3,6 +3,7 @@ import { ProfessorService } from 'src/services/professor/professor.service';
 import { Professor } from 'entities/professor.entity';
 import { AddProfessorDto } from 'src/dtos/professor/add.professor.dto';
 import { EditProfessorDto } from 'src/dtos/professor/edit.professor.dto';
+import { ApiResponse } from '../misc/api.response.class';
 
 @Controller('api/professor')
 export class ProfessorController {
@@ -13,20 +14,20 @@ export class ProfessorController {
     return this.professorService.getAll();
   }
   @Get(':id') // GET http://localhost:3000/api/professor:id/
-  getById(@Param('id') idNumber: number): Promise<Professor> {
+  getById(@Param('id') idNumber: number): Promise<Professor | ApiResponse> {
     return this.professorService.getById(idNumber);
   }
 
   @Put() //  PUT http://localhost:3000/api/professor/
-  addNew(@Body() data: AddProfessorDto): Promise<Professor> {
+  addNew(@Body() data: AddProfessorDto): Promise<Professor | ApiResponse> {
     return this.professorService.add(data);
   }
   //add editBy
-  @Post() // http://localhost:3000/api/professor/id/
+  @Post(':id') // http://localhost:3000/api/professor/id/
   editById(
     @Param('id') idNumber: number,
     @Body() data: EditProfessorDto,
-  ): Promise<Professor> {
+  ): Promise<Professor | ApiResponse> {
     return this.professorService.editByid(idNumber, data);
   }
 }
