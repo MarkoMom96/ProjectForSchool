@@ -31,7 +31,7 @@ export class ProfessorService {
 
     });
     
-    //return this.professor.findOne(id);
+    
 
   }
 

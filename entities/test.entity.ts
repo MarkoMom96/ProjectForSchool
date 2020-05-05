@@ -6,10 +6,13 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
+  JoinTable,
+  ManyToMany,
 } from 'typeorm';
 import { FinishedTest } from './finished-test.entity';
 import { Question } from './question.entity';
 import { Professor } from './professor.entity';
+import { Student } from './student.entity';
 
 @Index('fk_test_professor_id', ['professorId'], {})
 @Entity('test')
@@ -47,6 +50,15 @@ export class Test {
     finishedTest => finishedTest.test,
   )
   finishedTests: FinishedTest[];
+
+  @ManyToMany(type => Student, student => student.tests)
+  @JoinTable({
+    name: 'finished_test',
+    joinColumn: { name: "test_id", referencedColumnName: "testId" },
+    inverseJoinColumn: { name: "student_id", referencedColumnName: "studentId"} 
+  })
+  students: Student[];
+
 
   @OneToMany(
     () => Question,
