@@ -68,6 +68,6 @@ export class Student {
   joinColumn: { name: "student_id", referencedColumnName: "studentId" },
   inverseJoinColumn: { name: "test_id", referencedColumnName: "testId"} 
 })
-tests: Test[];
+studentTests: Test[];
 
 }

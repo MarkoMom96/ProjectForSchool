@@ -16,13 +16,33 @@ export class StudentService {
   ) {}
 
   getAll(): Promise<Student[]> {
-    return this.student.find();
+    return this.student.find({
+      relations:[
+                 'studentTests',
+                 'finishedTests'
+      ],
+      select:[
+              'studentId',
+              'username',
+              'forename',
+              'surname', 
+              'index'
+      ]
+      });
   }
 
   getById(id: number): Promise<Student | ApiResponse> {
     
     return new Promise(async resolve => {
-        const student = await this.student.findOne(id);
+        const student = await this.student.findOne(id,{
+          select:[
+                  'studentId',
+                  'username',
+                  'forename',
+                  'surname', 
+                  'index'
+  ]
+        });
 
         if (student === undefined) {
           resolve(new ApiResponse('error', -2002, "Student with that id doesn't exist."));

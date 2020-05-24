@@ -51,7 +51,7 @@ export class Test {
   )
   finishedTests: FinishedTest[];
 
-  @ManyToMany(type => Student, student => student.tests)
+  @ManyToMany(type => Student, student => student.studentTests)
   @JoinTable({
     name: 'finished_test',
     joinColumn: { name: "test_id", referencedColumnName: "testId" },

@@ -2,7 +2,7 @@
   "name": "aplikacija",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Marko Momcilovic <Marko.Momcilovic.15@singimail.rs>",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -29,6 +29,7 @@
     "@nestjsx/crud-request": "^4.4.5",
     "@nestjsx/crud-typeorm": "^4.4.5",
     "class-transformer": "^0.2.3",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",

@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer,  } from '@nestjs/common';
 import { AppController } from './controllers/app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseConfiguration } from 'config/database.configuration';
@@ -20,6 +20,8 @@ import { QuestionAnswerController } from './controllers/api/question-answer.cont
 import { QuestionAnswerService } from './services/question-answer/question-answer.service';
 import { FinishedTestController } from './controllers/api/finished-test.controller';
 import { FinishedTestService } from './services/finished-test/finished-test.service';
+import { AuthController } from './controllers/api/auth.controller';
+import { AuthMiddleware } from './middlewares/auth.middleware';
 
 @Module({
   imports: [
@@ -56,6 +58,7 @@ import { FinishedTestService } from './services/finished-test/finished-test.serv
     QuestionController,
     QuestionAnswerController,
     FinishedTestController,
+    AuthController,
   ],
   providers: [
     ProfessorService,
@@ -66,5 +69,17 @@ import { FinishedTestService } from './services/finished-test/finished-test.serv
     FinishedTestService,
 
   ],
+  exports: [
+    ProfessorService, 
+  ]
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(AuthMiddleware)
+      .exclude("auth/*")
+      .forRoutes("api/*");
+  }
+
+  
+}

@@ -16,23 +16,43 @@ export class ProfessorService {
   ) {}
 
   getAll(): Promise<Professor[]> {
-    return this.professor.find();
+    return this.professor.find({
+      select:[
+              'professorId',
+              'username',
+              'forename',
+              'surname',       
+      ]
+    });
   }
 
   getById(id: number): Promise<Professor | ApiResponse> {
     
     return new Promise(async resolve => {
-        const professor = await this.professor.findOne(id);
+        const professor = await this.professor.findOne(id,{
+          select:[
+                  'professorId',
+                  'username',
+                  'forename',
+                  'surname',
+                ]
+        });
 
         if (professor === undefined) {
           resolve(new ApiResponse('error', -1002, "Professor with that id doesn't exist."));
         }
         resolve(professor);
-
     });
-    
-    
+  }
 
+  async getByUsername(givenUsername: string): Promise<Professor | null>{
+    const professor = await this.professor.findOne({
+      username: givenUsername
+    });
+      if (professor){
+        return professor;
+      }
+      return null;
   }
 
   // DTO -> Model(Entity)

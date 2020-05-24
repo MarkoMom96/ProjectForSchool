@@ -7,6 +7,6 @@ export class AppController {
 
   @Get() // GET http://localhost:3000/
   getHomePage(): string {
-    return 'Home Page';
+    return 'Login Page';
   }
 }

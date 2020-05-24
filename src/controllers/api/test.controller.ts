@@ -26,7 +26,9 @@ import { TestService } from "src/services/test/test.service";
                 exclude: ['passwordHash'] 
             }
         }
-    }
+    },
+ 
+    
 })
 export class TestController {
     constructor( public service: TestService){
