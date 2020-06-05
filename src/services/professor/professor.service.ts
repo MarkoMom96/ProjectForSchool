@@ -72,7 +72,7 @@ export class ProfessorService {
       .save(newProfessor)
       .then(data => resolve(data))
       .catch(error => {
-          resolve(new ApiResponse('error', -1001, 'Username already exists.'))
+          resolve(new ApiResponse('error', -1001, "Username already exists."))
         });
     });
   }

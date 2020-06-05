@@ -73,7 +73,7 @@ export class StudentService {
       .save(newStudent)
       .then(data => resolve(data))
       .catch(error => {
-          resolve(new ApiResponse('error', -2001, 'Username already exists.'))
+          resolve(new ApiResponse('error', -2001, "Username already exists."))
         });
     });
   }
