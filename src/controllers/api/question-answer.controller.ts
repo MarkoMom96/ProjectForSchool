@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
-import { QuestionAnswer } from "entities/question-answer.entity";
+import { QuestionAnswer } from "src/entities/question-answer.entity";
 import { QuestionAnswerService } from "src/services/question-answer/question-answer.service";
 import { ApiResponse } from "../misc/api.response.class";
 

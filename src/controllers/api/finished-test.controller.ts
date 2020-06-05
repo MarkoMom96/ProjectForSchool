@@ -1,6 +1,6 @@
 import { Controller, } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
-import { FinishedTest } from "entities/finished-test.entity";
+import { FinishedTest } from "src/entities/finished-test.entity";
 import { FinishedTestService } from "src/services/finished-test/finished-test.service";
 
 @Controller('api/finished-test/') 

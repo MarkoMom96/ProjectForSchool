@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import * as crypto from 'crypto';
 import { ApiResponse } from 'src/controllers/misc/api.response.class';
 import { async } from 'rxjs/internal/scheduler/async';
-import { Student } from 'entities/student.entity';
+import { Student } from 'src/entities/student.entity';
 import { AddStudentDto } from 'src/dtos/student/add.student.dto';
 import { EditStudentDto } from 'src/dtos/student/edit.student.dto';
 

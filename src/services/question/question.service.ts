@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { TypeOrmCrudService } from "@nestjsx/crud-typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { Question } from "entities/question.entity";
+import { Question } from "src/entities/question.entity";
 import { resolve } from "dns";
 import { ApiResponse } from "src/controllers/misc/api.response.class";
 

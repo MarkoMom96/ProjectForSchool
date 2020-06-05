@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Put, Body, Post } from '@nestjs/common';
 import { ApiResponse } from '../misc/api.response.class';
-import { Student } from 'entities/student.entity';
+import { Student } from 'src/entities/student.entity';
 import { StudentService } from 'src/services/student/student.service';
 import { EditStudentDto } from 'src/dtos/student/edit.student.dto';
 import { AddStudentDto } from 'src/dtos/student/add.student.dto';
