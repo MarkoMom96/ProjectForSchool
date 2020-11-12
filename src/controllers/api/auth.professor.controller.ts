@@ -11,7 +11,7 @@ import { jtwSecret } from "config/jtw.secter";
 
 @Controller('auth/')
 export class AuthController {
-    constructor(public professorService: ProfessorService) {}
+    constructor(public professorService: ProfessorService) {  }
 
     @Post('login') // localhost:3000/auth/login
     async doLogin(@Body() data: LoginProfessorDto, @Req() req: Request): Promise<LoginInfoProfessorDto | ApiResponse> {
@@ -20,7 +20,7 @@ export class AuthController {
             return new Promise(resolve =>
                  resolve(new ApiResponse('error',-3001, "Information u entered is incorrect")))
         }
-        const passwordHash = crypto.createHash('sha512');
+        const passwordHash = crypto.createHash('sha512'); 
         passwordHash.update(data.password);
         const passwordHashString = passwordHash.digest('hex').toLocaleUpperCase();
 
@@ -30,10 +30,10 @@ export class AuthController {
         }
 
         const thisMoment = new Date;
-        thisMoment.setDate(thisMoment.getDate() + 15);
+        thisMoment.setDate(thisMoment.getDate() + 64);
         const expTimestamp = thisMoment.getTime() / 1000;
          
-        const jwtData = new JwtDataProfessorDto();
+        const jwtData: JwtDataProfessorDto = new JwtDataProfessorDto();
         jwtData.professorId = professor.professorId;
         jwtData.username = professor.surname; 
         jwtData.exp = expTimestamp;

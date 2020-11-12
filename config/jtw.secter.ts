@@ -7,4 +7,4 @@ function makeSecretJwtString(): string {
  }
     return secretString;
 }
-export const jtwSecret: string = "Marko"; //makeSecretJwtString();
+export const jtwSecret: string = "Momcilovic"; // just for testing

@@ -18,12 +18,12 @@ export class StudentController {
     return this.studentService.getById(idNumber);
   }
 
-  @Put() //  PUT http://localhost:3000/api/professor/
+  @Post() //  POST http://localhost:3000/api/professor/
   addNew(@Body() data: AddStudentDto): Promise<Student | ApiResponse> {
     return this.studentService.add(data);
   }
   //add editBy
-  @Post(':id') // http://localhost:3000/api/professor/id/
+  @Put(':id') // PUT http://localhost:3000/api/professor/id/
   editById(
     @Param('id') idNumber: number,
     @Body() data: EditStudentDto,

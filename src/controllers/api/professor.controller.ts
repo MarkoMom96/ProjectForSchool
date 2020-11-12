@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Put, Body, Post } from '@nestjs/common';
+import { Controller, Get, Param, Put, Body, Post, Patch } from '@nestjs/common';
 import { ProfessorService } from 'src/services/professor/professor.service';
 import { Professor } from 'src/entities/professor.entity';
 import { AddProfessorDto } from 'src/dtos/professor/add.professor.dto';
@@ -18,12 +18,12 @@ export class ProfessorController {
     return this.professorService.getById(idNumber);
   }
 
-  @Put() //  PUT http://localhost:3000/api/professor/
+  @Post() //  POST http://localhost:3000/api/professor/
   addNew(@Body() data: AddProfessorDto): Promise<Professor | ApiResponse> {
     return this.professorService.add(data);
   }
   //add editBy
-  @Post(':id') // http://localhost:3000/api/professor/id/
+  @Patch(':id') // PATCH http://localhost:3000/api/professor/id/
   editById(
     @Param('id') idNumber: number,
     @Body() data: EditProfessorDto,

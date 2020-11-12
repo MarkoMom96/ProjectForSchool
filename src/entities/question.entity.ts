@@ -34,6 +34,13 @@ export class Question {
   })
   questionName: string;
 
+  @Column({
+    type: 'int',
+    name: 'number_of_correct_answers',
+    unsigned:true
+  })
+  numberOfCorrectAnswers: number;
+
   @OneToMany(
     () => QuestionAnswer,
     questionAnswer => questionAnswer.question,

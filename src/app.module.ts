@@ -20,7 +20,7 @@ import { QuestionAnswerController } from './controllers/api/question-answer.cont
 import { QuestionAnswerService } from './services/question-answer/question-answer.service';
 import { FinishedTestController } from './controllers/api/finished-test.controller';
 import { FinishedTestService } from './services/finished-test/finished-test.service';
-import { AuthController } from './controllers/api/auth.controller';
+import { AuthController } from './controllers/api/auth.professor.controller';
 import { AuthMiddleware } from './middlewares/auth.middleware';
 
 @Module({
