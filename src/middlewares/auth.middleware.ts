@@ -2,14 +2,18 @@ import { NestMiddleware, HttpException, HttpStatus, Injectable } from "@nestjs/c
 import { NextObserver } from "rxjs";
 import { NextFunction, Request, Response } from "express";
 import { ProfessorService } from "src/services/professor/professor.service";
+import { StudentService } from "src/services/student/student.service";
 import * as jwt from "jsonwebtoken";
-import { JwtDataProfessorDto } from "src/dtos/professor/jwt.data.professor.dto";
+import { JwtDataDto } from "src/dtos/auth/jwt.data.dto";
 import { jtwSecret } from "config/jtw.secter";
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
 
-    constructor(private readonly professorService: ProfessorService){}
+    constructor(
+        private readonly professorService: ProfessorService,
+        private readonly studentService: StudentService
+    ){}
     async use(req: Request, res: Response, next: NextFunction) {
 
         if(!req.headers.authorization) {
@@ -23,7 +27,7 @@ export class AuthMiddleware implements NestMiddleware {
         }
         const tokenString = tokenParts[1];
 
-        let jwtData: JwtDataProfessorDto;
+        let jwtData: JwtDataDto;
          try {
             jwtData =  jwt.verify(tokenString, jtwSecret);
          } 
@@ -41,10 +45,17 @@ export class AuthMiddleware implements NestMiddleware {
             throw new HttpException('Bad token found( ua )',HttpStatus.UNAUTHORIZED);  
         }
 
-        const professor = await this.professorService.getById(jwtData.professorId);
-        if (!professor){
-            throw new HttpException('Account not found',HttpStatus.UNAUTHORIZED);  
+        if(jwtData.role === "professor") {
+            const professor = await this.professorService.getById(jwtData.Id);
+            if (!professor){
+                throw new HttpException('Account not found',HttpStatus.UNAUTHORIZED);  
+            }
         }
+
+        const student = await this.studentService.getById(jwtData.Id);
+            if (!student){
+                throw new HttpException('Account not found',HttpStatus.UNAUTHORIZED);  
+            }
 
         const currentTimeStamp = new Date().getTime() / 1000;
         if(currentTimeStamp >= jwtData.exp) {

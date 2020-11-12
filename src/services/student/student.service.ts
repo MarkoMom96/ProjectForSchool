@@ -55,6 +55,16 @@ export class StudentService {
 
   }
 
+  async getByUsername(givenUsername: string): Promise<Student | null>{
+    const student = await this.student.findOne({
+      username: givenUsername
+    });
+      if (student){
+        return student;
+      }
+      return null;
+  }
+
   // DTO -> Model(Entity)
   add(data: AddStudentDto): Promise<Student | ApiResponse> {
     const passwordHash = crypto.createHash('sha512');
@@ -95,5 +105,5 @@ export class StudentService {
     return this.student.save(currentStudent);
   }
 
-  //Functions to add: add, editById
+ 
 }

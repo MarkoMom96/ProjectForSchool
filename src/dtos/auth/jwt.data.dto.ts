@@ -1,5 +1,6 @@
-export class JwtDataProfessorDto {
-    professorId: number;
+export class JwtDataDto {
+    role: "student" | "professor";
+    Id: number;
     username: string;
     exp: number; // unix timestemp
     ip: string;
@@ -7,7 +8,8 @@ export class JwtDataProfessorDto {
 
     toPlainObj() {
         return {
-            professorId: this.professorId,
+            role: this.role,
+            professorId: this.Id,
             username: this.username, 
             exp: this.exp,
             ip: this.ip,
