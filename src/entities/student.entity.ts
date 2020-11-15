@@ -12,7 +12,7 @@ import { FinishedTest } from './finished-test.entity';
 
 
 @Index('uq_student_username', ['username'], { unique: true })
-@Index('uq_student_index', ['index'], { unique: true })
+//@Index('uq_student_index', ['index'], { unique: true })
 @Entity('student')
 export class Student {
   @PrimaryGeneratedColumn({
@@ -48,12 +48,6 @@ export class Student {
   })
   surname: string;
 
-  @Column({
-    type: 'char',
-    unique: true,
-    length: 10,
-  })
-  index: string;
 
   @OneToMany(
     () => FinishedTest,

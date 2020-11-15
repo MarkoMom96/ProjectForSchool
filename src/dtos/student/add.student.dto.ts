@@ -3,6 +3,6 @@ export class AddStudentDto {
     password: string;
     forename: string;
     surname: string;
-    index: string;
+    
   }
   

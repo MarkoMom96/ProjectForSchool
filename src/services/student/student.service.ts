@@ -25,8 +25,8 @@ export class StudentService {
               'studentId',
               'username',
               'forename',
-              'surname', 
-              'index'
+              'surname'
+              
       ]
       });
   }
@@ -39,8 +39,8 @@ export class StudentService {
                   'studentId',
                   'username',
                   'forename',
-                  'surname', 
-                  'index'
+                  'surname' 
+                  
   ]
         });
 
@@ -76,7 +76,7 @@ export class StudentService {
     newStudent.passwordHash = passwordHashString;
     newStudent.forename = data.forename;
     newStudent.surname = data.surname;
-    newStudent.index = data.index;
+    
 
     return new Promise(resolve => {
       this.student
