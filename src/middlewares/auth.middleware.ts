@@ -6,6 +6,7 @@ import { StudentService } from "src/services/student/student.service";
 import * as jwt from "jsonwebtoken";
 import { JwtDataDto } from "src/dtos/auth/jwt.data.dto";
 import { jtwSecret } from "config/jtw.secter";
+import { request } from "http";
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
@@ -62,6 +63,8 @@ export class AuthMiddleware implements NestMiddleware {
             throw new HttpException('The token has expired',HttpStatus.UNAUTHORIZED);  
 
         }
+
+        req.token = jwtData;
         next();
     }
 
