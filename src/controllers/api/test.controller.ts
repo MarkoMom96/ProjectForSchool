@@ -1,7 +1,9 @@
-import { Controller } from "@nestjs/common";
+import { Controller, UseGuards } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
 import { Test } from "src/entities/test.entity";
 import { TestService } from "src/services/test/test.service";
+import { AllowToRoles } from "../misc/allow.to.roles.descriptor";
+import { RoleCheckerGuard } from "../misc/role.checker.guard";
 
 @Controller('api/test')
 @Crud({
@@ -27,6 +29,39 @@ import { TestService } from "src/services/test/test.service";
             }
         }
     },
+    routes: {
+        only: [
+           "getManyBase",
+           "getOneBase",
+           "createOneBase",
+           "updateOneBase" 
+            
+        ],
+        getManyBase: {
+            decorators: [
+                UseGuards(RoleCheckerGuard),
+                AllowToRoles("professor","student")
+            ]
+        },
+        getOneBase: {
+            decorators: [
+                UseGuards(RoleCheckerGuard),
+                AllowToRoles("professor")
+            ]
+        },
+        createOneBase: {
+            decorators: [
+                UseGuards(RoleCheckerGuard),
+                AllowToRoles("professor")
+            ]
+        },
+        updateOneBase: {
+            decorators: [
+                UseGuards(RoleCheckerGuard),
+                AllowToRoles("professor")
+            ]
+        }
+    }
  
     
 })
