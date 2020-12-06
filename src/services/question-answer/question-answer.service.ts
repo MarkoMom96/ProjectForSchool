@@ -17,22 +17,14 @@ export class QuestionAnswerService extends TypeOrmCrudService<QuestionAnswer>{
 
 
 async getAllAnswersForQuestion(questionId : number) : Promise<QuestionAnswer[] | ApiResponse>{
-    const allAnswers : QuestionAnswer[] = await this.questionAnswer.find();
-    let answersForQuestion : QuestionAnswer[] = [];
-   
- for (let answer of allAnswers){
+    const answersForQuestion : QuestionAnswer[] = await this.questionAnswer.find({questionId:questionId});
 
-     if(answer.questionId == questionId){
-         
-        answersForQuestion.push(answer);
-     }
- }
- if(answersForQuestion.length === 0){
-    return new Promise( resolve=>{
-            resolve(new ApiResponse("error", -5001, "No answer found for given question"))
-    });
- }
- return answersForQuestion.sort(() => Math.random() - 0.5);
+    if(answersForQuestion.length === 0) {
+        return new Promise( resolve=>{
+            resolve(new ApiResponse("error", -4002, "No answers found for given question"))
+    })
+    }
+    return answersForQuestion.sort(() => Math.random() - 0.5);
 }
 }
 

@@ -16,22 +16,15 @@ export class QuestionService extends TypeOrmCrudService<Question>{
      }
 
      async getQuestionsForTest(testId: number): Promise<Question[] | ApiResponse>  {
-        const allQuestions : Question[] = await this.question.find();
-        let questionsForTest : Question[] = [];
-       
-     for (let question of allQuestions){
+        const questionsForTest : Question[] = await this.question.find({testId:testId});
 
-         if(question.testId == testId){
-             
-             questionsForTest.push(question);
-         }
-     }
-     if(questionsForTest.length === 0){
-        return new Promise( resolve=>{
+        if(questionsForTest.length === 0) {
+            return new Promise( resolve=>{
                 resolve(new ApiResponse("error", -4001, "No qustions found for given test"))
-        });
-     }
-     return questionsForTest.sort(() => Math.random() - 0.5);
+        })
+        }
+        return questionsForTest.sort(() => Math.random() - 0.5);
+     
 }
 
 }

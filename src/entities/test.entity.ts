@@ -40,10 +40,10 @@ export class Test {
 
   @Column({
     type: 'smallint',
-    name: 'number_of_questions',
+    name: 'is_active',
     unsigned: true,
   })
-  numberOfQuestions: number;
+  isActive: number;
 
   @OneToMany(
     () => FinishedTest,

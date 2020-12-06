@@ -71,7 +71,7 @@ export class AuthController {
 
         if (student.passwordHash !== passwordHashString) {
             return new Promise(resolve =>
-                resolve(new ApiResponse('error',-3002, "Information u entered is incorrect")))
+                resolve(new ApiResponse('error',-3002, "Information u entered is incorrect ")))
         }
 
         const thisMoment = new Date;
@@ -83,9 +83,9 @@ export class AuthController {
         jwtData.Id = student.studentId;
         jwtData.username = student.surname;
 
-        jwtData.exp = expTimestamp;
-        jwtData.ip = req.ip.toString();
-        jwtData.userAgent = req.header["user-agent"];
+         jwtData.exp = expTimestamp;
+         jwtData.ip = req.ip.toString();
+         jwtData.userAgent = req.header["user-agent"];
 
         const token: string = jwt.sign(jwtData.toPlainObj(), jtwSecret ); 
 
