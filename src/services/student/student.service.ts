@@ -7,12 +7,13 @@ import { async } from 'rxjs/internal/scheduler/async';
 import { Student } from 'src/entities/student.entity';
 import { AddStudentDto } from 'src/dtos/student/add.student.dto';
 import { EditStudentDto } from 'src/dtos/student/edit.student.dto';
+import { StudentToken } from 'src/entities/student.token.entity';
 
 @Injectable()
 export class StudentService {
   constructor(
-    @InjectRepository(Student)
-    private readonly student: Repository<Student>,
+    @InjectRepository(Student) private readonly student: Repository<Student>,
+    @InjectRepository(StudentToken) private readonly studentToken: Repository<StudentToken>
   ) {}
 
   getAll(): Promise<Student[]> {
@@ -105,5 +106,46 @@ export class StudentService {
     return this.student.save(currentStudent);
   }
 
+  async addToken(studentId: number, token: string, expiresAt: string) {
+    const userToken = new StudentToken();
+      userToken.studentId = studentId
+      userToken.token = token
+      userToken.expiresAt = expiresAt
+
+      return await this.studentToken.save(userToken);
+    }
+
+  async getStudentToken(token: string): Promise<StudentToken> {
+    return await this.studentToken.findOne({
+      token: token,
+    });
+  }
+  async invalidateToken(token: string) : Promise<StudentToken | ApiResponse>{
+    const studentToken = await this.studentToken.findOne({
+      token: token
+    });
+    if(!studentToken) return new ApiResponse("error", -10001, "Token nije pronadjen");
+
+    studentToken.isValid = 0;
+    await this.studentToken.save(studentToken);
+
+    return await this.getStudentToken(token);
+
+  } 
+  async invalidateStudentTokens(studentId: number): Promise<(StudentToken | ApiResponse)[]> {
+    const studentTokens = await this.studentToken.find({
+      studentId : studentId
+      
+    });
+      const results = []
+      for (const studentToken of studentTokens) {
+          results.push(this.invalidateToken(studentToken.token));
+
+      }
+        return results;
+    
+
+  }
+  }
+
  
-}

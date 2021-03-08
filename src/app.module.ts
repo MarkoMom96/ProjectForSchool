@@ -22,6 +22,7 @@ import { FinishedTestController } from './controllers/api/finished-test.controll
 import { FinishedTestService } from './services/finished-test/finished-test.service';
 import { AuthController } from './controllers/api/auth.controller';
 import { AuthMiddleware } from './middlewares/auth.middleware';
+import { StudentToken } from './entities/student.token.entity';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { AuthMiddleware } from './middlewares/auth.middleware';
         Question,
         Student,
         Test,
+        StudentToken
       ],
     }),
     TypeOrmModule.forFeature([
@@ -47,7 +49,8 @@ import { AuthMiddleware } from './middlewares/auth.middleware';
       Test,
       Question,
       QuestionAnswer, 
-      FinishedTest, 
+      FinishedTest,
+      StudentToken
     ]),
   ],
   controllers: [

@@ -45,6 +45,13 @@ export class Test {
   })
   isActive: number;
 
+  @Column({
+    type: 'smallint',
+    name: 'duration',
+    unsigned: true,
+  })
+  duration: number;
+
   @OneToMany(
     () => FinishedTest,
     finishedTest => finishedTest.test,

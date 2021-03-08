@@ -13,7 +13,7 @@ export class StudentController {
 
   @Get() // GET http://localhost:3000/api/student/
   @UseGuards(RoleCheckerGuard)
-  @AllowToRoles("professor")
+  @AllowToRoles("professor","student") // remove student
   getAll(): Promise<Student[]> {
     return this.studentService.getAll();
   }
