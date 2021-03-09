@@ -23,6 +23,7 @@ import { FinishedTestService } from './services/finished-test/finished-test.serv
 import { AuthController } from './controllers/api/auth.controller';
 import { AuthMiddleware } from './middlewares/auth.middleware';
 import { StudentToken } from './entities/student.token.entity';
+import { ProfessorToken } from './entities/professor.token.entity';
 
 @Module({
   imports: [
@@ -40,7 +41,8 @@ import { StudentToken } from './entities/student.token.entity';
         Question,
         Student,
         Test,
-        StudentToken
+        StudentToken,
+        ProfessorToken,
       ],
     }),
     TypeOrmModule.forFeature([
@@ -50,7 +52,8 @@ import { StudentToken } from './entities/student.token.entity';
       Question,
       QuestionAnswer, 
       FinishedTest,
-      StudentToken
+      StudentToken,
+      ProfessorToken,
     ]),
   ],
   controllers: [

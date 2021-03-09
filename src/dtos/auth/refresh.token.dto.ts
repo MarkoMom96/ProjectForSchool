@@ -1,4 +1,4 @@
-export class UserRefreshTokenDto {
+export class RefreshTokenDto {
   token: string
   //add validator
 }

@@ -7,12 +7,13 @@ import { AddProfessorDto } from 'src/dtos/professor/add.professor.dto';
 import { EditProfessorDto } from 'src/dtos/professor/edit.professor.dto';
 import { ApiResponse } from 'src/controllers/misc/api.response.class';
 import { async } from 'rxjs/internal/scheduler/async';
+import { ProfessorToken } from 'src/entities/professor.token.entity';
 
 @Injectable()
 export class ProfessorService {
   constructor(
-    @InjectRepository(Professor)
-    private readonly professor: Repository<Professor>,
+    @InjectRepository(Professor) private readonly professor: Repository<Professor>,
+    @InjectRepository(ProfessorToken) private readonly professorToken: Repository<ProfessorToken>
   ) {}
 
   getAll(): Promise<Professor[]> {
@@ -97,5 +98,44 @@ export class ProfessorService {
     return this.professor.save(currentProfessor);
   }
 
-  //Functions to add: add, editById
+  async addToken(professorId: number, token: string, expiresAt: string) {
+    const userToken = new ProfessorToken();
+      userToken.professorId = professorId
+      userToken.token = token
+      userToken.expiresAt = expiresAt
+
+      return await this.professorToken.save(userToken);
+    }
+
+  async getProfessorToken(token: string): Promise<ProfessorToken> {
+    return await this.professorToken.findOne({
+      token: token,
+    });
+  }
+  async invalidateToken(token: string) : Promise<ProfessorToken | ApiResponse>{
+    const professorToken = await this.professorToken.findOne({
+      token: token
+    });
+    if(!professorToken) return new ApiResponse("error", -10001, "Token nije pronadjen");
+
+    professorToken.isValid = 0;
+    await this.professorToken.save(professorToken);
+
+    return await this.getProfessorToken(token);
+
+  } 
+  async invalidateProfessorTokens(professorId: number): Promise<(ProfessorToken | ApiResponse)[]> {
+    const professorTokens = await this.professorToken.find({
+      professorId : professorId
+      
+    });
+      const results = []
+      for (const professorToken of professorTokens) {
+          results.push(this.invalidateToken(professorToken.token));
+
+      }
+        return results;
+    
+
+  }
 }
