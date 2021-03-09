@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import { Test } from './test.entity';
 import { FinishedTest } from './finished-test.entity';
+import * as Validator from 'class-validator';
 
 
 @Index('uq_student_username', ['username'], { unique: true })
@@ -24,8 +25,11 @@ export class Student {
   @Column({
     type: 'varchar',
     unique: true,
-    length: 32,
+    length: 10,
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Matches(/^[0-9]{10}$/)
   username: string;
 
   @Column({
@@ -33,18 +37,24 @@ export class Student {
     name: 'password_hash',
     length: 128,
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsHash('sha512')
   passwordHash: string;
 
   @Column({
     type: 'varchar',
     length: 32,
   })
+  @Validator.IsNotEmpty()
+  @Validator.Length(3,32)
   forename: string;
 
   @Column({
     type: 'varchar',
     length: 32,
   })
+  @Validator.IsNotEmpty()
+  @Validator.Length(3,32)
   surname: string;
 
 

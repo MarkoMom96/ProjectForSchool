@@ -5,7 +5,7 @@ import {
   PrimaryGeneratedColumn,
   
 } from 'typeorm';
-
+import * as Validator from 'class-validator';
 
 @Index('fk_student_token_student_id', ['studentId'], {})
 @Entity('student_token')
@@ -33,6 +33,8 @@ export class StudentToken {
   @Column({
     type: 'text'
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
   token: string
 
   @Column({
@@ -47,5 +49,7 @@ export class StudentToken {
     unsigned: true,
     default: 1
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsIn([0, 1])
   isValid: number;
 }

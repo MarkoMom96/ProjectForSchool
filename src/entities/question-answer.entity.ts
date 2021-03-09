@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Question } from './question.entity';
+import * as Validator from 'class-validator';
 
 @Index('fk_question_answer_question_id', ['questionId'], {})
 @Entity('question_answer')
@@ -28,8 +29,10 @@ export class QuestionAnswer {
   @Column({
     type: 'varchar',
     name: 'answer_name',
-    length: 64,
+    length: 128,
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
   answerName: string;
 
   @Column({
@@ -38,6 +41,8 @@ export class QuestionAnswer {
     unsigned: true,
     default: () => "'0'",
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsIn([0,1])
   isCorrectAnswer: number;
 
   @ManyToOne(

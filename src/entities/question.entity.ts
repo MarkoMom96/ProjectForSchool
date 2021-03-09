@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import { QuestionAnswer } from './question-answer.entity';
 import { Test } from './test.entity';
+import * as Validator from 'class-validator';
 
 @Index('fk_question_test_id', ['testId'], {})
 @Entity('question')
@@ -30,14 +31,23 @@ export class Question {
   @Column({
     type: 'varchar',
     name: 'question_name',
-    length: 256,
+    length: 512,
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
   questionName: string;
 
   @Column({
     type: 'int',
     name: 'number_of_correct_answers',
     unsigned:true
+  })
+  @Validator.IsNotEmpty()
+  @Validator.IsNumber({
+    allowInfinity: false,
+    allowNaN: false,
+    maxDecimalPlaces: 0
+
   })
   numberOfCorrectAnswers: number;
 

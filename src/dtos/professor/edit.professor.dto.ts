@@ -1,6 +1,10 @@
+import * as Validator from 'class-validator';
+
+
 export class EditProfessorDto {
-  username:string;
+  
+  @Validator.IsNotEmpty()
+  @Validator.Length(8, 128) 
   password: string;
-  forename: string;
-  surname: string;
+  
 }

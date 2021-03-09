@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { Student } from './student.entity';
 import { Test } from './test.entity';
+import * as Validator from 'class-validator';
 
 @Index('fk_finished_test_test_id', ['testId'], {})
 @Index('fk_finished_test_student_id', ['studentId'], {})
@@ -39,12 +40,16 @@ export class FinishedTest {
     name: 'is_passed',
     unsigned: true,
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsIn([0, 1])
   isPassed: number;
 
   @Column({
     type: 'tinyint',
     unsigned: true,
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsIn([0, 100])
   score: number;
 
   @Column({

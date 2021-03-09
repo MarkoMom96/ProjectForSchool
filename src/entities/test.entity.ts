@@ -13,6 +13,7 @@ import { FinishedTest } from './finished-test.entity';
 import { Question } from './question.entity';
 import { Professor } from './professor.entity';
 import { Student } from './student.entity';
+import * as Validator from 'class-validator';
 
 @Index('fk_test_professor_id', ['professorId'], {})
 @Entity('test')
@@ -29,6 +30,8 @@ export class Test {
     name: 'test_name',
     length: 64,
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
   testName: string;
 
   @Column({
@@ -39,10 +42,12 @@ export class Test {
   professorId: number;
 
   @Column({
-    type: 'smallint',
+    type: 'tinyint',
     name: 'is_active',
     unsigned: true,
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsIn([0,1])
   isActive: number;
 
   @Column({
@@ -50,6 +55,13 @@ export class Test {
     name: 'duration',
     unsigned: true,
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsNumber({
+    allowInfinity: false,
+    allowNaN: false,
+    maxDecimalPlaces: 0
+  })
+  @Validator.IsPositive()
   duration: number;
 
   @OneToMany(

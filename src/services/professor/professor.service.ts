@@ -90,10 +90,10 @@ export class ProfessorService {
     passwordHash.update(data.password);
     const passwordHashString = passwordHash.digest('hex').toLocaleUpperCase();
 
-    currentProfessor.username = data.username;
+    //currentProfessor.username = data.username;
     currentProfessor.passwordHash = passwordHashString;
-    currentProfessor.forename = data.forename;
-    currentProfessor.surname = data.surname;
+    //currentProfessor.forename = data.forename;
+    //currentProfessor.surname = data.surname;
 
     return this.professor.save(currentProfessor);
   }
