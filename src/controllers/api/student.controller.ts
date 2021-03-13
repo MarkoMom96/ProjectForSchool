@@ -15,7 +15,7 @@ import { AddStudentDto } from 'src/dtos/student/add.student.dto';
 import { RoleCheckerGuard } from '../misc/role.checker.guard';
 import { AllowToRoles } from '../misc/allow.to.roles.descriptor';
 
-@Controller('api/student')
+@Controller('api/student/')
 export class StudentController {
   constructor(private studentService: StudentService) {}
 
@@ -30,6 +30,14 @@ export class StudentController {
   @AllowToRoles('professor')
   getById(@Param('id') idNumber: number): Promise<Student | ApiResponse> {
     return this.studentService.getById(idNumber);
+  }
+  @Get('username/:username') // GET http://localhost:3000/api/student/username:username/
+  @UseGuards(RoleCheckerGuard)
+  @AllowToRoles('professor', 'student')
+  getByUsername(
+    @Param(':username') username: string,
+  ): Promise<Student | ApiResponse> {
+    return this.studentService.getByUsername(username);
   }
 
   @Post() //  POST http://localhost:3000/api/studnet/

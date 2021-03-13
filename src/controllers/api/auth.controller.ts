@@ -33,13 +33,13 @@ export class AuthController {
     @Req() req: Request,
   ): Promise<LoginInfoDto | ApiResponse> {
     const professor = await this.professorService.getByUsername(data.username);
-    if (!professor)
+    if (!professor) {
       return new ApiResponse(
         'error',
         -3001,
         'Information u entered is incorrect',
       );
-
+    }
     const passwordHash = crypto.createHash('sha512');
     passwordHash.update(data.password);
     const passwordHashString = passwordHash.digest('hex').toLocaleUpperCase();
@@ -155,12 +155,13 @@ export class AuthController {
     @Req() req: Request,
   ): Promise<LoginInfoDto | ApiResponse> {
     const student = await this.studentService.getByUsername(data.username);
-    if (!student)
+    if (!student) {
       return new ApiResponse(
         'error',
         -3001,
         'Information u entered is incorrect',
       );
+    }
     const passwordHash = crypto.createHash('sha512');
     passwordHash.update(data.password);
     const passwordHashString = passwordHash.digest('hex').toLocaleUpperCase();
@@ -168,7 +169,7 @@ export class AuthController {
     if (student.passwordHash !== passwordHashString)
       return new ApiResponse(
         'error',
-        -3001,
+        -3002,
         'Information u entered is incorrect',
       );
 

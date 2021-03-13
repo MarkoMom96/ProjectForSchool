@@ -47,6 +47,8 @@ export class StudentService {
     const student = await this.student.findOne({
       username: givenUsername,
     });
+    console.log('arg: ', givenUsername);
+    console.log('Student:', student);
     if (student) {
       return student;
     }
