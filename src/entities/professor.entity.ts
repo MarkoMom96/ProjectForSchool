@@ -42,7 +42,7 @@ export class Professor {
     length: 32,
   })
   @Validator.IsNotEmpty()
-  @Validator.Length(3,32)
+  @Validator.Length(3, 32)
   forename: string;
 
   @Column({
@@ -50,7 +50,7 @@ export class Professor {
     length: 32,
   })
   @Validator.IsNotEmpty()
-  @Validator.Length(3,32)
+  @Validator.Length(3, 32)
   surname: string;
 
   @OneToMany(

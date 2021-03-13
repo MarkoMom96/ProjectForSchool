@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  Index,
-  PrimaryGeneratedColumn,
-  
-} from 'typeorm';
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 import * as Validator from 'class-validator';
 import { IsString } from 'class-validator';
 
@@ -32,11 +26,11 @@ export class ProfessorToken {
   createdAt: string;
 
   @Column({
-    type: 'text'
+    type: 'text',
   })
   @Validator.IsNotEmpty()
   @Validator.IsString()
-  token: string
+  token: string;
 
   @Column({
     type: 'datetime',
@@ -48,7 +42,7 @@ export class ProfessorToken {
     type: 'tinyint',
     name: 'is_valid',
     unsigned: true,
-    default: 1
+    default: 1,
   })
   @Validator.IsNotEmpty()
   @Validator.IsIn([0, 1])

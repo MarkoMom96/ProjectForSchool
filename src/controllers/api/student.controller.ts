@@ -1,4 +1,12 @@
-import { Controller, Get, Param, Put, Body, Post, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Put,
+  Body,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { ApiResponse } from '../misc/api.response.class';
 import { Student } from 'src/entities/student.entity';
 import { StudentService } from 'src/services/student/student.service';
@@ -13,27 +21,27 @@ export class StudentController {
 
   @Get() // GET http://localhost:3000/api/student/
   @UseGuards(RoleCheckerGuard)
-  @AllowToRoles("professor","student") // remove student
+  @AllowToRoles('professor', 'student') // remove student
   getAll(): Promise<Student[]> {
     return this.studentService.getAll();
   }
   @Get(':id') // GET http://localhost:3000/api/student:id/
   @UseGuards(RoleCheckerGuard)
-  @AllowToRoles("professor")
+  @AllowToRoles('professor')
   getById(@Param('id') idNumber: number): Promise<Student | ApiResponse> {
     return this.studentService.getById(idNumber);
   }
 
   @Post() //  POST http://localhost:3000/api/studnet/
   @UseGuards(RoleCheckerGuard)
-  @AllowToRoles("professor")
+  @AllowToRoles('professor')
   addNew(@Body() data: AddStudentDto): Promise<Student | ApiResponse> {
     return this.studentService.add(data);
   }
   //add editBy
   @Put(':id') // PUT http://localhost:3000/api/student/id/
   @UseGuards(RoleCheckerGuard)
-  @AllowToRoles("professor")
+  @AllowToRoles('professor')
   editById(
     @Param('id') idNumber: number,
     @Body() data: EditStudentDto,

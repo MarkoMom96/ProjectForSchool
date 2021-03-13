@@ -40,14 +40,13 @@ export class Question {
   @Column({
     type: 'int',
     name: 'number_of_correct_answers',
-    unsigned:true
+    unsigned: true,
   })
   @Validator.IsNotEmpty()
   @Validator.IsNumber({
     allowInfinity: false,
     allowNaN: false,
-    maxDecimalPlaces: 0
-
+    maxDecimalPlaces: 0,
   })
   numberOfCorrectAnswers: number;
 

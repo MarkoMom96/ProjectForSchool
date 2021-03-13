@@ -13,57 +13,44 @@ import { StudentToken } from 'src/entities/student.token.entity';
 export class StudentService {
   constructor(
     @InjectRepository(Student) private readonly student: Repository<Student>,
-    @InjectRepository(StudentToken) private readonly studentToken: Repository<StudentToken>
+    @InjectRepository(StudentToken)
+    private readonly studentToken: Repository<StudentToken>,
   ) {}
 
   getAll(): Promise<Student[]> {
     return this.student.find({
-      relations:[
-                 'studentTests',
-                 'finishedTests'
-      ],
-      select:[
-              'studentId',
-              'username',
-              'forename',
-              'surname'
-              
-      ]
-      });
+      relations: ['studentTests', 'finishedTests'],
+      select: ['studentId', 'username', 'forename', 'surname'],
+    });
   }
 
   getById(id: number): Promise<Student | ApiResponse> {
-    
     return new Promise(async resolve => {
-        const student = await this.student.findOne(id,{
-          select:[
-                  'studentId',
-                  'username',
-                  'forename',
-                  'surname' 
-                  
-  ]
-        });
+      const student = await this.student.findOne(id, {
+        select: ['studentId', 'username', 'forename', 'surname'],
+      });
 
-        if (student === undefined) {
-          resolve(new ApiResponse('error', -2002, "Student with that id doesn't exist."));
-        }
-        resolve(student);
-
+      if (student === undefined) {
+        resolve(
+          new ApiResponse(
+            'error',
+            -2002,
+            "Student with that id doesn't exist.",
+          ),
+        );
+      }
+      resolve(student);
     });
-    
-    
-
   }
 
-  async getByUsername(givenUsername: string): Promise<Student | null>{
+  async getByUsername(givenUsername: string): Promise<Student | null> {
     const student = await this.student.findOne({
-      username: givenUsername
+      username: givenUsername,
     });
-      if (student){
-        return student;
-      }
-      return null;
+    if (student) {
+      return student;
+    }
+    return null;
   }
 
   // DTO -> Model(Entity)
@@ -77,24 +64,32 @@ export class StudentService {
     newStudent.passwordHash = passwordHashString;
     newStudent.forename = data.forename;
     newStudent.surname = data.surname;
-    
 
     return new Promise(resolve => {
       this.student
-      .save(newStudent)
-      .then(data => resolve(data))
-      .catch(error => {
-          resolve(new ApiResponse('error', -2001, "Username already exists."))
+        .save(newStudent)
+        .then(data => resolve(data))
+        .catch(error => {
+          resolve(new ApiResponse('error', -2001, 'Username already exists.'));
         });
     });
   }
 
-  async editByid(idNumber: number, data: EditStudentDto): Promise<Student | ApiResponse> {
+  async editByid(
+    idNumber: number,
+    data: EditStudentDto,
+  ): Promise<Student | ApiResponse> {
     const currentStudent: Student = await this.student.findOne(idNumber);
 
     if (currentStudent === undefined) {
       return new Promise(resolve => {
-          resolve(new ApiResponse('error', -1002, "Student with that id doesn't exist."))
+        resolve(
+          new ApiResponse(
+            'error',
+            -1002,
+            "Student with that id doesn't exist.",
+          ),
+        );
       });
     }
 
@@ -108,44 +103,40 @@ export class StudentService {
 
   async addToken(studentId: number, token: string, expiresAt: string) {
     const userToken = new StudentToken();
-      userToken.studentId = studentId
-      userToken.token = token
-      userToken.expiresAt = expiresAt
+    userToken.studentId = studentId;
+    userToken.token = token;
+    userToken.expiresAt = expiresAt;
 
-      return await this.studentToken.save(userToken);
-    }
+    return await this.studentToken.save(userToken);
+  }
 
   async getStudentToken(token: string): Promise<StudentToken> {
     return await this.studentToken.findOne({
       token: token,
     });
   }
-  async invalidateToken(token: string) : Promise<StudentToken | ApiResponse>{
+  async invalidateToken(token: string): Promise<StudentToken | ApiResponse> {
     const studentToken = await this.studentToken.findOne({
-      token: token
+      token: token,
     });
-    if(!studentToken) return new ApiResponse("error", -10001, "Token nije pronadjen");
+    if (!studentToken)
+      return new ApiResponse('error', -10001, 'Token nije pronadjen');
 
     studentToken.isValid = 0;
     await this.studentToken.save(studentToken);
 
     return await this.getStudentToken(token);
-
-  } 
-  async invalidateStudentTokens(studentId: number): Promise<(StudentToken | ApiResponse)[]> {
+  }
+  async invalidateStudentTokens(
+    studentId: number,
+  ): Promise<(StudentToken | ApiResponse)[]> {
     const studentTokens = await this.studentToken.find({
-      studentId : studentId
-      
+      studentId: studentId,
     });
-      const results = []
-      for (const studentToken of studentTokens) {
-          results.push(this.invalidateToken(studentToken.token));
-
-      }
-        return results;
-    
-
+    const results = [];
+    for (const studentToken of studentTokens) {
+      results.push(this.invalidateToken(studentToken.token));
+    }
+    return results;
   }
-  }
-
- 
+}

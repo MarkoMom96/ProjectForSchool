@@ -1,4 +1,4 @@
-import { Module, NestModule, MiddlewareConsumer,  } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { AppController } from './controllers/app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseConfiguration } from 'config/database.configuration';
@@ -50,15 +50,15 @@ import { ProfessorToken } from './entities/professor.token.entity';
       Student,
       Test,
       Question,
-      QuestionAnswer, 
+      QuestionAnswer,
       FinishedTest,
       StudentToken,
       ProfessorToken,
     ]),
   ],
   controllers: [
-    AppController, 
-    ProfessorController, 
+    AppController,
+    ProfessorController,
     StudentController,
     TestController,
     QuestionController,
@@ -73,20 +73,14 @@ import { ProfessorToken } from './entities/professor.token.entity';
     QuestionService,
     QuestionAnswerService,
     FinishedTestService,
-
   ],
-  exports: [
-    ProfessorService, 
-    StudentService,
-  ]
+  exports: [ProfessorService, StudentService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(AuthMiddleware)
-      .exclude("auth/*")
-      .forRoutes("api/*");
+      .exclude('auth/*')
+      .forRoutes('api/*');
   }
-
-  
 }

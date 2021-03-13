@@ -42,7 +42,7 @@ export class QuestionAnswer {
     default: () => "'0'",
   })
   @Validator.IsNotEmpty()
-  @Validator.IsIn([0,1])
+  @Validator.IsIn([0, 1])
   isCorrectAnswer: number;
 
   @ManyToOne(

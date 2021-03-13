@@ -7,14 +7,14 @@ export class AddProfessorDto {
   username: string;
 
   @Validator.IsNotEmpty()
-  @Validator.Length(8, 128) 
+  @Validator.Length(8, 128)
   password: string;
 
   @Validator.IsNotEmpty()
-  @Validator.Length(3,32)
+  @Validator.Length(3, 32)
   forename: string;
 
   @Validator.IsNotEmpty()
-  @Validator.Length(3,32)
+  @Validator.Length(3, 32)
   surname: string;
 }
