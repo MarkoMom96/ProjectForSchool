@@ -1,0 +1,3971 @@
+{
+	"info": {
+		"_postman_id": "f5ebf3ce-20b3-478a-9adb-aad1e8843462",
+		"name": "Veb servis aplikacije",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Professor",
+			"item": [
+				{
+					"name": "Get all professors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/professor/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"professor",
+								""
+							]
+						},
+						"description": "Returns a list of all professors"
+					},
+					"response": [
+						{
+							"name": "Get all professors ( logged in )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/professor/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "174"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ae-6S3XBeHbiaC+OjbkWCJSW3y/YW8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:09:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"professorId\": 1,\n        \"username\": \"gordana.gav77\",\n        \"forename\": \"Gordana\",\n        \"surname\": \"Gavrilovic\"\n    },\n    {\n        \"professorId\": 2,\n        \"username\": \"zoran.mil91\",\n        \"forename\": \"Zoran\",\n        \"surname\": \"Milosevic\"\n    }\n]"
+						},
+						{
+							"name": "Get all professors ( not logged in )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/professor/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:11:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a single professor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/professor/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"professor",
+								"1",
+								""
+							]
+						},
+						"description": "Returns a single professor with a given id"
+					},
+					"response": [
+						{
+							"name": "Get a single professor ( not logged in)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/professor/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:13:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						},
+						{
+							"name": "Get a single professor ( loggedi in, tring to ger an existing professor )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/professor/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"58-/YvN0qbdxeDwZl09fCxy9naWQlY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:14:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"professorId\": 1,\n    \"username\": \"gordana.gav77\",\n    \"forename\": \"Gordana\",\n    \"surname\": \"Gavrilovic\"\n}"
+						},
+						{
+							"name": "Get a single professor (  loggedi in, tring to get an non-existent professor )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/professor/5678/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										"5678",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "87"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"57-Cxjm99yABsevOSShfq0wVkxhdyE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:16:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1002,\n    \"message\": \"Professor with that id doesn't exist.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a new professor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"nikola.boz90\",\n\t\"password\": \"nikola123\",\n\t\"forename\": \"Nikola\",\n\t\"surname\": \"Bozic\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/professor/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"professor",
+								""
+							]
+						},
+						"description": "Creates a new professor in database form given object"
+					},
+					"response": [
+						{
+							"name": "Add a new professor ( logged in,  username already exists )",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"zoran.mil91\",\n\t\"password\": \"NicePassword\",\n\t\"forename\": \"Zoran\",\n\t\"surname\": \"Milosevic\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/professor/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-KgnCHBBfu5IbdJDxjWJcpjV+HCA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:28:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1001,\n    \"message\": \"Username already exists.\"\n}"
+						},
+						{
+							"name": "Add a new professor ( logged in )",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"pavle.pav77\",\n\t\"password\": \"pavle123\",\n\t\"forename\": \"Pavle\",\n\t\"surname\": \"Pavlovic\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/professor/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "228"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e4-ZFKYREsjTLlB1Al8Aju6ySTv3bY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:31:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"pavle.pav77\",\n    \"passwordHash\": \"C29274545CB0E17405287A466C1FB75DA49BBAEDE41BFD5C6BEC7136DDE3ED9429819F8F7A3355F2329ABA6232E6F106553F33CA189F48A1B667B3D4799E79C9\",\n    \"forename\": \"Pavle\",\n    \"surname\": \"Pavlovic\",\n    \"professorId\": 4\n}"
+						},
+						{
+							"name": "Add a new professor ( not logged in)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"zoran.mil91\",\n\t\"password\": \"NicePassword\",\n\t\"forename\": \"Zoran\",\n\t\"surname\": \"Milosevic\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/professor/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:25:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit an existing professor",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"gordana.mar78\",\n    \"password\": \"gordana123\",\n\t\"forename\": \"Gordana\",\n\t\"surname\": \"Markovic\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/professor/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"professor",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit an existing professor ( logged in )",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"zoran123\",\n\t\"forename\": \"Zoran\",\n\t\"surname\": \"Milosevic\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/professor/2/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "229"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e5-Y373qN5wv9DeDFrSuKUNofNgEWU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:34:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"professorId\": 2,\n    \"username\": \"zoran.mil91\",\n    \"passwordHash\": \"1CC20FFD292D52C361A6396AAB700318A625722DF06BC866077414DD64ADDDD1F859252B1ED300415CA7C1129781707376799FE9702987256FD90FC772296689\",\n    \"forename\": \"Zoran\",\n    \"surname\": \"Milosevic\"\n}"
+						},
+						{
+							"name": "Edit an existing professor ( logged in, tring to edit non-existent professor ) ",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"zoran123\",\n\t\"forename\": \"Zoran\",\n\t\"surname\": \"Milosevic\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/professor/45/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										"45",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "87"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"57-Cxjm99yABsevOSShfq0wVkxhdyE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:33:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1002,\n    \"message\": \"Professor with that id doesn't exist.\"\n}"
+						},
+						{
+							"name": "Edit an existing professor ( not logged in )",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"zoran123\",\n\t\"forename\": \"Zoran\",\n\t\"surname\": \"Milosevic\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/professor/2/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"professor",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Oct 2020 18:31:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvZmVzc29yIiwicHJvZmVzc29ySWQiOjUsInVzZXJuYW1lIjoibmlrb2xhLmJvejkwIiwiZXhwIjoxNjE1NjM5MzgwLjQ2NiwiaXAiOiI6OjEiLCJpYXQiOjE2MTU2MzkyNjB9.b_7cL1-UTAKuO8TUBScDmTcsp2Tgg42GXbQrCpPy9f8",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Get all students",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/student/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"student",
+								""
+							]
+						},
+						"description": "Returns a list of all professors"
+					},
+					"response": [
+						{
+							"name": "Get all students ( Logged in )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/student/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "565"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"235-kDayarpwgA0MtRvAFB3Siuc1UCc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 07 Nov 2020 14:45:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"studentId\": 1,\n        \"username\": \"nikola.s122\",\n        \"forename\": \"Nikola\",\n        \"surname\": \"Stefanovic\",\n        \"index\": \"2009332122\",\n        \"studentTests\": [],\n        \"finishedTests\": []\n    },\n    {\n        \"studentId\": 3,\n        \"username\": \"stefan.m154\",\n        \"forename\": \"Stefan\",\n        \"surname\": \"Mirkovic\",\n        \"index\": \"2010312154\",\n        \"studentTests\": [],\n        \"finishedTests\": []\n    },\n    {\n        \"studentId\": 4,\n        \"username\": \"katarina.s938\",\n        \"forename\": \"Katarina\",\n        \"surname\": \"Stankovic\",\n        \"index\": \"2017889938\",\n        \"studentTests\": [],\n        \"finishedTests\": []\n    },\n    {\n        \"studentId\": 5,\n        \"username\": \"marija.s122\",\n        \"forename\": \"Marija\",\n        \"surname\": \"Simic\",\n        \"index\": \"2013443122\",\n        \"studentTests\": [],\n        \"finishedTests\": []\n    }\n]"
+						},
+						{
+							"name": "Get all students ( Not logged in )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/student/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 07 Nov 2020 14:54:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a single student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/student/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"student",
+								"3"
+							]
+						},
+						"description": "Returns a single student with a given id"
+					},
+					"response": [
+						{
+							"name": "Get a single student",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/student/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"68-CNAWKBQKFY89rJn46AnWI9w4uQw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 14:24:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"studentId\": 1,\n    \"username\": \"NikolaS.122\",\n    \"forename\": \"Nikola\",\n    \"surname\": \"Stefanovic\",\n    \"index\": \"2009332122\"\n}"
+						},
+						{
+							"name": "Get a single student ( Not logged in )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/student/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 07 Nov 2020 14:56:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						},
+						{
+							"name": "Get a single student - failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/student/128/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										"128",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-vezjvKoAeFzzBsV3Q/RChoPQ450\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 14:25:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -2002,\n    \"message\": \"Student with that id doesn't exist.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a student by username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/student/username/2017889938",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"student",
+								"username",
+								"2017889938"
+							]
+						},
+						"description": "Returns a single student with a given id"
+					},
+					"response": [
+						{
+							"name": "Get a single student ( Not logged in )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/student/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 07 Nov 2020 14:56:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						},
+						{
+							"name": "Get a single student",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/student/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"68-CNAWKBQKFY89rJn46AnWI9w4uQw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 14:24:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"studentId\": 1,\n    \"username\": \"NikolaS.122\",\n    \"forename\": \"Nikola\",\n    \"surname\": \"Stefanovic\",\n    \"index\": \"2009332122\"\n}"
+						},
+						{
+							"name": "Get a single student - failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/student/128/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										"128",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-vezjvKoAeFzzBsV3Q/RChoPQ450\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 14:25:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -2002,\n    \"message\": \"Student with that id doesn't exist.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a new student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"marija.s122\",\n\t\"password\": \"2013443122\",\n\t\"forename\": \"Marija\",\n\t\"surname\": \"Simic\",\n\t\"index\": \"2013443122\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/student/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"student",
+								""
+							]
+						},
+						"description": "Creates a new student in database form given object"
+					},
+					"response": [
+						{
+							"name": "Add a new student ( Not logged in )",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"marija.s122\",\n\t\"password\": \"2013443122\",\n\t\"forename\": \"Marija\",\n\t\"surname\": \"Simic\",\n\t\"index\": \"2013443122\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/student/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 07 Nov 2020 14:58:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						},
+						{
+							"name": "Add a new student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"NikolaS.122\",\n\t\"password\": \"BadPassword\",\n\t\"forename\": \"Nikola\",\n\t\"surname\": \"Stefanovic\",\n\t\"index\": \"2009332122\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/student/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fa-KZT1d6a9SrLhElMEeVEexHOZe0Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 13:55:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"NikolaS.122\",\n    \"passwordHash\": \"D0737CFEF87215D9DE7764411DCFBE22CA8071A235E860EEC139C503B7DE091D7D822A22F05701CB4CAA458C429713E4A2C8ABAF6BB27CE324D88B2170139D83\",\n    \"forename\": \"Nikola\",\n    \"surname\": \"Stefanovic\",\n    \"index\": \"2009332122\",\n    \"studentId\": 1\n}"
+						},
+						{
+							"name": "Add a new student - failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"NikolaS.122\",\n\t\"password\": \"BadPassword\",\n\t\"forename\": \"Nikola\",\n\t\"surname\": \"Stefanovic\",\n\t\"index\": \"2009332122\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/student/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-S6dEYePn9HZYRIzKVnQ85dU7twE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 13:56:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -2001,\n    \"message\": \"Username already exists.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit an student",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\": \"2017889938\"\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/student/4/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"student",
+								"4",
+								""
+							]
+						},
+						"description": "Edits student data if student exists in database"
+					},
+					"response": [
+						{
+							"name": "Edit an student ( Not logged in )",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"2013443122\"\n\t\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/student/5/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										"5",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 07 Nov 2020 14:59:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						},
+						{
+							"name": "Edit an student",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"2009332122\"\n\t\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/student/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fa-EAvdC562hQhl9EjKAvfJMUGBXrs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 14:12:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"studentId\": 1,\n    \"username\": \"NikolaS.122\",\n    \"passwordHash\": \"DAA965EA10B94FC6AB4701C13DB9BBA2810672B624646141C02431ED06DF0DA343D7869B0221B9D6AA00384E2F92040F0EBFCEB5E3A6DE866FA0643BBB05E0A4\",\n    \"forename\": \"Nikola\",\n    \"surname\": \"Stefanovic\",\n    \"index\": \"2009332122\"\n}"
+						},
+						{
+							"name": "Edit an student - failed",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"password\": \"2009332122\"\n\t\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/student/127/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"student",
+										"127",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-sS7rV+cse3EXkJyXLCQgb/PlW7A\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 14:13:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -1002,\n    \"message\": \"Student with that id doesn't exist.\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInVzZXJuYW1lIjoiMjAxMzQ0MzEyMiIsImV4cCI6MTYxNTY2NzI3Ni4xODgsImlwIjoiOjoxIiwiaWF0IjoxNjE1NjY2Njc2fQ.ZqeWFJ7cWYoCeOMAtZ_2t9WlhOTYYtxQuSnfbDPc7XU",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Professor Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"gordana.mar78\",\n\t\"password\": \"gordana123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/profesor/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"profesor",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Professor Login - wrong username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"nikola.mar781\",\n\t\"password\": \"newPassword2\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/professor/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"professor",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-GaqArrdT311bzLMGuH6yz8A7HoE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 May 2020 14:38:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -3001,\n    \"message\": \"Information u entered is incorrect\"\n}"
+						},
+						{
+							"name": "Professor Login - successful login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"nikola.mar78\",\n\t\"password\": \"newPassword2\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/professor/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"professor",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "306"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"132-zMCVY+Lp2xDlGzBKJzl6doTOkgg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 May 2020 14:55:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"professorId\": 2,\n    \"username\": \"nikola.mar78\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9mZXNzb3JJZCI6MiwidXNlcm5hbWUiOiJzdXJuYW1lX3Rlc3QiLCJleHAiOjE1OTc2NzYxMTguMDA0LCJpcCI6Ijo6MSIsInVzZXJBZ2VudCI6IlBvc3RtYW5SdW50aW1lLzcuMjQuMSIsImlhdCI6MTU4OTAzNjExOH0.Ql6OtmwHW_3Y1yzA-H9KxECVptjwQgSjrK-mmVRXBFg\"\n}"
+						},
+						{
+							"name": "Professor Login - wrong password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"nikola.mar78\",\n\t\"password\": \"newPassword22\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-UjvKjf07wyrPzABeTvJxlji4xdY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 May 2020 14:39:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -3002,\n    \"message\": \"Information u entered is incorrect\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Student Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"2017889938\",\n\t\"password\":\"2017889938\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/student/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"student",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Professor Login - wrong password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"nikola.mar78\",\n\t\"password\": \"newPassword22\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-UjvKjf07wyrPzABeTvJxlji4xdY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 May 2020 14:39:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -3002,\n    \"message\": \"Information u entered is incorrect\"\n}"
+						},
+						{
+							"name": "Professor Login - successful login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"nikola.mar78\",\n\t\"password\": \"newPassword2\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/professor/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"professor",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "306"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"132-zMCVY+Lp2xDlGzBKJzl6doTOkgg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 May 2020 14:55:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"professorId\": 2,\n    \"username\": \"nikola.mar78\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9mZXNzb3JJZCI6MiwidXNlcm5hbWUiOiJzdXJuYW1lX3Rlc3QiLCJleHAiOjE1OTc2NzYxMTguMDA0LCJpcCI6Ijo6MSIsInVzZXJBZ2VudCI6IlBvc3RtYW5SdW50aW1lLzcuMjQuMSIsImlhdCI6MTU4OTAzNjExOH0.Ql6OtmwHW_3Y1yzA-H9KxECVptjwQgSjrK-mmVRXBFg\"\n}"
+						},
+						{
+							"name": "Professor Login - wrong username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"nikola.mar781\",\n\t\"password\": \"newPassword2\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/professor/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"professor",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-GaqArrdT311bzLMGuH6yz8A7HoE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 May 2020 14:38:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -3001,\n    \"message\": \"Information u entered is incorrect\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh Student token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsInByb2Zlc3NvcklkIjo1LCJ1c2VybmFtZSI6IjIwMTM0NDMxMjIiLCJleHAiOjE2MTgwMDg2MjYuNjM0LCJpcCI6Ijo6MSIsImlhdCI6MTYxNTI0MzgyNn0.EpqX3HfW43eK4vnXHrxjnuXVmTuNcNgCJfkvS8wuy2Y\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/student/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"student",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Professor token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvZmVzc29yIiwicHJvZmVzc29ySWQiOjUsInVzZXJuYW1lIjoibmlrb2xhLmJvejkwIiwiZXhwIjoxNjE4MDc5ODg0LjE2NCwiaXAiOiI6OjEiLCJpYXQiOjE2MTUzMTUwODR9.VVheLn8cxrQfvIpUis-L6E0H8P4tN0OJXb3b89e7G-k\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/professor/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"professor",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Test ( CRUD )",
+			"item": [
+				{
+					"name": "Add a new test",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"testName\": \"test01\"\n\t\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/test/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"test",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/test/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"test",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all tests",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/test/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"test",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bb-SudlUEJp6zXBZmCvaVzvKK36kIw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 17:21:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"testId\": 1,\n        \"testName\": \"test01\",\n        \"professorId\": 1,\n        \"numberOfQuestions\": 5,\n        \"professor\": {\n            \"professorId\": 1,\n            \"username\": \"gordana.gav77\",\n            \"forename\": \"Gordana\",\n            \"surname\": \"Gavrilovic\"\n        },\n        \"students\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a single test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/test/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"test",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a single test - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/test/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"test",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "185"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b9-NJjHg2MvCD0dTMW9wXQf9BO7lAM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 17:22:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"testId\": 1,\n    \"testName\": \"test01\",\n    \"professorId\": 1,\n    \"numberOfQuestions\": 5,\n    \"professor\": {\n        \"professorId\": 1,\n        \"username\": \"gordana.gav77\",\n        \"forename\": \"Gordana\",\n        \"surname\": \"Gavrilovic\"\n    },\n    \"students\": []\n}"
+						},
+						{
+							"name": "Get a single test - failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/test/1123",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"test",
+										"1123"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-+I58fL9R97ZeWbaSOza0LCq/3dE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 17:22:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Test not found\",\n    \"error\": \"Not Found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit a test",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"testName\": \"test01\",\n\t\"professorId\": \"1\",\n\t\"numberOfQuestions\": \"5\"\n\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/test/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"test",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit a test - failed",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"testName\": \"test01\",\n\t\"numberOfQuestions\": \"5\"\n\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/test/123",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"test",
+										"123"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-rlKccw1E+/fV8niQk4oFitDfPro\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 17:36:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 500,\n    \"message\": \"Internal server error\"\n}"
+						},
+						{
+							"name": "Edit a test",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"testName\": \"test01\",\n\t\"numberOfQuestions\": \"5\"\n\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/test/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"test",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "185"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b9-NJjHg2MvCD0dTMW9wXQf9BO7lAM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 May 2020 17:36:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"testId\": 1,\n    \"testName\": \"test01\",\n    \"professorId\": 1,\n    \"numberOfQuestions\": 5,\n    \"professor\": {\n        \"professorId\": 1,\n        \"username\": \"gordana.gav77\",\n        \"forename\": \"Gordana\",\n        \"surname\": \"Gavrilovic\"\n    },\n    \"students\": []\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Question ( CRUD )",
+			"item": [
+				{
+					"name": "Add a new question",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"testId\":\"1\",\n\t\"questionName\": \"question01\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/question/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"question",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a new question",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"testId\":\"1\",\n\t\"questionName\": \"question01\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/question/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"85-rMJ4HgPt+Kh0ClsKMvWJvCrZR6U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 11:22:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"questionId\": 1,\n    \"testId\": 1,\n    \"questionName\": \"question01\",\n    \"test\": {\n        \"testId\": 1,\n        \"testName\": \"test01\",\n        \"professorId\": 1,\n        \"numberOfQuestions\": 5\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/question/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"question",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all questions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/question/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"87-oGkspdpGz9VqwLROwWkJ7R0g704\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 11:30:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"questionId\": 1,\n        \"testId\": 1,\n        \"questionName\": \"question01\",\n        \"test\": {\n            \"testId\": 1,\n            \"testName\": \"test01\",\n            \"professorId\": 1,\n            \"numberOfQuestions\": 5\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a single question",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/question/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"question",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a single question",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/question/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"85-rMJ4HgPt+Kh0ClsKMvWJvCrZR6U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 11:27:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"questionId\": 1,\n    \"testId\": 1,\n    \"questionName\": \"question01\",\n    \"test\": {\n        \"testId\": 1,\n        \"testName\": \"test01\",\n        \"professorId\": 1,\n        \"numberOfQuestions\": 5\n    }\n}"
+						},
+						{
+							"name": "Get a single question - failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/question/1123",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question",
+										"1123"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-L1NIcrAQ0n1vE8u8yL3nO9wC3L4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 11:28:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Question not found\",\n    \"error\": \"Not Found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit a question",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "ty",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"questionName\": \"question01\",\n    \"numberOfCorrectAnswers\": 3\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/question/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"question",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit a question",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "ty",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"questionName\": \"firstQuestion\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/question/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "136"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"88-/4m1+uVg4AZXxlB5QRVZJbESM5s\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 11:33:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"questionId\": 1,\n    \"testId\": 1,\n    \"questionName\": \"firstQuestion\",\n    \"test\": {\n        \"testId\": 1,\n        \"testName\": \"test01\",\n        \"professorId\": 1,\n        \"numberOfQuestions\": 5\n    }\n}"
+						},
+						{
+							"name": "Edit a question - failed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "ty",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"questionName\": \"firstQuestion\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/question/123",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question",
+										"123"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-rlKccw1E+/fV8niQk4oFitDfPro\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 11:34:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 500,\n    \"message\": \"Internal server error\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get questions for test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/question/test/123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"question",
+								"test",
+								"123"
+							]
+						},
+						"description": "Gets all questions for a specific test"
+					},
+					"response": [
+						{
+							"name": "Get questions for test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/question/test/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question",
+										"test",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "416"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a0-aC4gWvGw3sv6ws4S5UMnPJ6/NgQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 08 Nov 2020 18:48:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"questionId\": 4,\n        \"testId\": 1,\n        \"questionName\": \"question03\",\n        \"numberOfCorrectAnswers\": 1\n    },\n    {\n        \"questionId\": 6,\n        \"testId\": 1,\n        \"questionName\": \"question05\",\n        \"numberOfCorrectAnswers\": 1\n    },\n    {\n        \"questionId\": 2,\n        \"testId\": 1,\n        \"questionName\": \"question02\",\n        \"numberOfCorrectAnswers\": 1\n    },\n    {\n        \"questionId\": 5,\n        \"testId\": 1,\n        \"questionName\": \"question04\",\n        \"numberOfCorrectAnswers\": 1\n    },\n    {\n        \"questionId\": 1,\n        \"testId\": 1,\n        \"questionName\": \"question01\",\n        \"numberOfCorrectAnswers\": 3\n    }\n]"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Question-answer ( CRUD )",
+			"item": [
+				{
+					"name": "Add a new question-answer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"questionId\": \"1\",\n\t\"answerName\": \"FirstAnswer\",\n\t\"isCorrectAnswer\": \"0\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/question-answer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"question-answer",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all question-answers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/question-answer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"question-answer",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all question-answers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/question-answer/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question-answer",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "156"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9c-WigKjd9sJdVLuwRKma1Ab0hOPY8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 12:39:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"questionAnswerId\": 1,\n        \"questionId\": 1,\n        \"answerName\": \"FirstAnswer\",\n        \"isCorrectAnswer\": 0,\n        \"question\": {\n            \"questionId\": 1,\n            \"testId\": 1,\n            \"questionName\": \"firstQuestion\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a single question-answer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/question-answer/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"question-answer",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a single question-answer - failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/question-answer/1123",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question-answer",
+										"1123"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-hPyQje8edF7kRh3kQ5j7i0PGMbU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 12:41:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"QuestionAnswer not found\",\n    \"error\": \"Not Found\"\n}"
+						},
+						{
+							"name": "Get a single question-answer",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/question-answer/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question-answer",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "154"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9a-JGCaVLjmU7dEUdHGwRH95BdnMvA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 12:40:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"questionAnswerId\": 1,\n    \"questionId\": 1,\n    \"answerName\": \"FirstAnswer\",\n    \"isCorrectAnswer\": 0,\n    \"question\": {\n        \"questionId\": 1,\n        \"testId\": 1,\n        \"questionName\": \"firstQuestion\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit a question-answer",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"isCorrectAnswer\": \"1\",\n    \"answerName\": \"FirstAnswer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/question-answer/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"question-answer",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit a question-answer",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"isCorrectAnswer\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/question-answer/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question-answer",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "154"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9a-nZZw5jXb49Y87TKXqRw0OZ9e4QE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 12:50:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"questionAnswerId\": 1,\n    \"questionId\": 1,\n    \"answerName\": \"FirstAnswer\",\n    \"isCorrectAnswer\": 1,\n    \"question\": {\n        \"questionId\": 1,\n        \"testId\": 1,\n        \"questionName\": \"firstQuestion\"\n    }\n}"
+						},
+						{
+							"name": "Edit a question-answer - failed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"isCorrectAnswer\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/question-answer/454",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question-answer",
+										"454"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-rlKccw1E+/fV8niQk4oFitDfPro\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 13:05:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 500,\n    \"message\": \"Internal server error\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all answer for question",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/question-answer/question/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"question-answer",
+								"question",
+								"1"
+							]
+						},
+						"description": "Returns all answers for quesiton with given id"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Finished-test ( CRUD )",
+			"item": [
+				{
+					"name": "Add a new finished-test",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"testId\":\"1\",\r\n\t\"studentId\": \"1\",\r\n    \"isPassed\": \"1\",\r\n    \"score\": \"27\"\r\n\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/finished-test/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"finished-test",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a finished-test",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"testId\":\"1\",\r\n\t\"studentId\": \"1\",\r\n    \"isPassed\": \"0\",\r\n    \"score\": \"12\"\r\n\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/finished-test/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"finished-test",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all finished-tests",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/finished-test/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"finished-test",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all question-answers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/question-answer/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question-answer",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "156"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9c-WigKjd9sJdVLuwRKma1Ab0hOPY8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 12:39:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"questionAnswerId\": 1,\n        \"questionId\": 1,\n        \"answerName\": \"FirstAnswer\",\n        \"isCorrectAnswer\": 0,\n        \"question\": {\n            \"questionId\": 1,\n            \"testId\": 1,\n            \"questionName\": \"firstQuestion\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a single finished-test",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/finished-test/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"finished-test",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all question-answers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/question-answer/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"question-answer",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "156"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9c-WigKjd9sJdVLuwRKma1Ab0hOPY8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 May 2020 12:39:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"questionAnswerId\": 1,\n        \"questionId\": 1,\n        \"answerName\": \"FirstAnswer\",\n        \"isCorrectAnswer\": 0,\n        \"question\": {\n            \"questionId\": 1,\n            \"testId\": 1,\n            \"questionName\": \"firstQuestion\"\n        }\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoicHJvZmVzc29yIiwicHJvZmVzc29ySWQiOjUsInVzZXJuYW1lIjoiQm96aWMiLCJleHAiOjE2MTE0MTU1MjAuMzY4LCJpcCI6Ijo6MSIsImlhdCI6MTYwNTg4NTkyMH0.iw58WAK4BdfYrNu7m4fV3X6xViyPJXNlMflCoC1LnHw",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
